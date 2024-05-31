@@ -11,7 +11,21 @@ namespace ecommerce_masstechasp1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["MyUser"] != null)
+            {
+                Label1.Text = Session["MyUser"].ToString();
+            }
+            else
+            {
+                Response.Redirect("<script>alert('You Need To Login').window.location.href='Login.aspx'</script>");
+            }
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 }

@@ -5,35 +5,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRkW3GYoHR1Q1mrz4x+6ep29X+6v9v2lpbL9FErcD" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha384-U1OQN8AuqVjx6v4tOzFIR8Czpe6TEdZh9U/Cg0DQHuxh/R19P/hGvB+VVQ7HXSwk" crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="text-center mb-4">Register</h2>
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <asp:TextBox ID="txtUsername" CssClass="form-control" runat="server" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <asp:TextBox ID="txtPassword" CssClass="form-control" TextMode="Password" runat="server" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" />
-                        </div>
-                        <div class="d-grid">
-                            <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary" Text="Register" OnClick="btnRegister_Click" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+              <div style="width:30%;border:5px solid blue;padding:20px;margin:auto">
+  <div class="mb-3">
+ <label for="exampleInputPassword1" class="form-label">Username or Email :
+ </label>&nbsp;<asp:TextBox ID="TextBox1" runat="server" placeholder ="Enter Username or Email"></asp:TextBox>
+  </div>
+ <div class="mb-3">
+   <label for="email" class="form-label">Email</label>
+ <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder ="Enter Email" runat="server" />
+   </div>
+<div class="mb-3">
+ <label for="exampleInputPassword1" class="form-label">Password :
+</label><asp:TextBox ID="TextBox2" runat="server" placeholder ="Enter Password"></asp:TextBox>
+</div>
+ <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary" Text="Register" OnClick="btnRegister_Click" />
+</div>
     </form>
 </body>
 </html>

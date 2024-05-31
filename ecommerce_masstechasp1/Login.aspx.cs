@@ -33,12 +33,12 @@ namespace ecommerce_masstechasp1
                 {
                     if ((reader["username"].Equals(user) || reader["email"].Equals(user)) && reader["passkey"].Equals(pass) && reader["urole"].ToString().Equals("Admin"))
                     {
-                        
+                        Session["MyUser"] = user;
                         Response.Redirect("Admin.aspx");
                     }
-                    else if ((reader["username"].Equals(user) || reader["email"].Equals(user)) && reader["passKey"].Equals(pass) && reader["urole"].ToString().Equals("User"))
+                    else  if ((reader["username"].Equals(user) || reader["email"].Equals(user)) && reader["passKey"].Equals(pass) && reader["urole"].ToString().Equals("User"))
                     {
-                        
+                        Session["MyUser"] = user;
                         Response.Redirect("User.aspx");
                     }
 
@@ -46,7 +46,7 @@ namespace ecommerce_masstechasp1
             }
             else
             {
-                Response.Write("<script>alert('invaild  username and password')</script>");
+                Response.Write("<script>alert('First Register')</script>");
 
             }
         }
