@@ -27,10 +27,10 @@
         <a class="nav-link" href="AdminHome.aspx">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="AddEmp.aspx">Add Product</a>
+        <a class="nav-link" href="AddProduct.aspx">Add Product</a>
       </li>
           <li class="nav-item">
-    <a class="nav-link" href="AddEmp.aspx">Show Product</a>
+    <a class="nav-link" href="ShowReport.aspx"> Show Report</a>
   </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +46,6 @@
   </div>
 </nav>
         </div>
-
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <a href="Admin.Master">Admin.Master</a>
