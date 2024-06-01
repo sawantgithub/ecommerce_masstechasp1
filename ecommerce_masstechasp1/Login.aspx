@@ -13,7 +13,7 @@
 <div style="width:30%;border:5px solid blue;padding:20px;margin:auto">
   <div class="mb-3">
  <label for="exampleInputPassword1" class="form-label">Username or Email :<br />
- </label>&nbsp;<asp:TextBox ID="TextBox1" runat="server" placeholder ="Enter Username or Email"></asp:TextBox>
+ </label>&nbsp;<asp:TextBox ID="TextBox1" runat="server" placeholder ="Enter Username or Email" Width="136px"></asp:TextBox>
   </div>
 <div class="mb-3">
  <label for="exampleInputPassword1" class="form-label">Password :<br />

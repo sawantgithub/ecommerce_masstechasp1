@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace ecommerce_masstechasp1
 {
-    public partial class User : System.Web.UI.Page
+    public partial class firstpage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-
-        protected void On_click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddCart.aspx");
+            //if (!IsPostBack)
+            //{
+            //    if (Session["UserId"] == null)
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //}
         }
     }
 }

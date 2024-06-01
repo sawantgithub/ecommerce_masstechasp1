@@ -24,7 +24,7 @@ namespace ecommerce_masstechasp1
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("firstpage.aspx");
 
         }
     }

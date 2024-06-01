@@ -13,5 +13,11 @@ namespace ecommerce_masstechasp1
         {
 
         }
+
+        protected void onclick(object sender, EventArgs e)
+        {
+            Response.Redirect("AddCart.aspx");
+           
+        }
     }
 }

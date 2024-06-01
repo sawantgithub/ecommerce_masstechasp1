@@ -68,10 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddProduct.aspx" />
+    <Content Include="firstpage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="User.aspx" />
-    <Content Include="UserHome.aspx" />
+    <Content Include="AddCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="Admin.aspx" />
     <Content Include="ShowReport.aspx" />
@@ -90,6 +91,13 @@
     </Compile>
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="firstpage.aspx.cs">
+      <DependentUpon>firstpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="firstpage.aspx.designer.cs">
+      <DependentUpon>firstpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -134,12 +142,12 @@
     <Compile Include="ShowReport.aspx.designer.cs">
       <DependentUpon>ShowReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserHome.aspx.cs">
-      <DependentUpon>UserHome.aspx</DependentUpon>
+    <Compile Include="AddCart.aspx.cs">
+      <DependentUpon>AddCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserHome.aspx.designer.cs">
-      <DependentUpon>UserHome.aspx</DependentUpon>
+    <Compile Include="AddCart.aspx.designer.cs">
+      <DependentUpon>AddCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
