@@ -8,12 +8,13 @@
             <Columns>
                
                 <asp:BoundField DataField="product_id" HeaderText="product_id" InsertVisible="False" ReadOnly="True" SortExpression="product_id" />
+                <asp:ImageField DataImageUrlField="product_img" HeaderText="Product Image" ControlStyle-Height="100px" ControlStyle-Width="100px" />
                 <asp:BoundField DataField="product_name" HeaderText="product_name" SortExpression="product_name" />
                 <asp:BoundField DataField="categories" HeaderText="categories" SortExpression="categories" />
                 <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
-                <asp:BoundField DataField="product_img" HeaderText="product_img" SortExpression="product_img" />
                 <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
                  <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+              
             </Columns>
             <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
             <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
@@ -106,4 +107,6 @@
              </UpdateParameters>
          </asp:SqlDataSource>
      </div>
+    <br />
+    <br />
 </asp:Content>

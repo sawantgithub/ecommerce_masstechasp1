@@ -50,7 +50,7 @@
                  <%--   quantity:
                     <asp:Label ID="quantityLabel" runat="server" Text='<%# Eval("quantity") %>' />--%>
                     <br />
-                    <asp:Button runat="server" class="btn btn-primary" Text="Add to cart" OnClick="On_click" />
+                    <asp:Button runat="server" class="btn btn-primary" Text="Add to cart" OnClick="On_click" CommandName="SelectItem" CommandArgument='<%# Eval("product_id") %>'/>
                     <br />
                 </div>
 

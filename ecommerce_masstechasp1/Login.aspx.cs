@@ -39,6 +39,7 @@ namespace ecommerce_masstechasp1
                     else  if ((reader["username"].Equals(user) || reader["email"].Equals(user)) && reader["passKey"].Equals(pass) && reader["urole"].ToString().Equals("User"))
                     {
                         Session["MyUser"] = user;
+                        Session["user_id"] = reader["user_id"];
                         Response.Redirect("User.aspx");
                     }
 

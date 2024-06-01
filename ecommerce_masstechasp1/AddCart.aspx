@@ -4,20 +4,27 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    hello Cart
-    <asp:GridView runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="cart_id" DataSourceID="SqlDataSource2" PageSize="5">
-    <Columns>
-        <asp:BoundField DataField="cart_id" HeaderText="cart_id" InsertVisible="False" ReadOnly="True" SortExpression="cart_id" />
-        <asp:BoundField DataField="user_id" HeaderText="user_id" SortExpression="user_id" />
-        <asp:BoundField DataField="product_id" HeaderText="product_id" SortExpression="product_id" />
-        <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
-        <asp:BoundField DataField="product_img" HeaderText="product_img" SortExpression="product_img" />
-    </Columns>
-</asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconn %>" SelectCommand="FetchCart" SelectCommandType="StoredProcedure">
-    <SelectParameters>
-        <asp:Parameter Name="userId" Type="Int32" />
-    </SelectParameters>
-</asp:SqlDataSource>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" DataSourceID="SqlDataSource1">
+            <AlternatingRowStyle BackColor="#CCCCCC" />
+            <Columns>
+                <asp:BoundField DataField="product_id" HeaderText="Product ID" />
+                 <asp:ImageField DataImageUrlField="product_img" HeaderText="Product Image" ControlStyle-Width="150px" ControlStyle-Height="150px">
+     <ControlStyle Width="150px" Height="150px" />
+ </asp:ImageField>
+                <asp:BoundField DataField="product_name" HeaderText="Product Name" />
+                <asp:BoundField DataField="categories" HeaderText="Categories" />
+                <asp:BoundField DataField="price" HeaderText="Price" />
+                <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
+            </Columns>
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 </asp:Content>
