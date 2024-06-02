@@ -4,31 +4,43 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRkW3GYoHR1Q1mrz4x+6ep29X+6v9v2lpbL9FErcD" crossorigin="anonymous">
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha384-U1OQN8AuqVjx6v4tOzFIR8Czpe6TEdZh9U/Cg0DQHuxh/R19P/hGvB+VVQ7HXSwk" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Ecommerce</title>
+        <style>
+        body {
+            background-image: url('https://img.freepik.com/premium-photo/time-buying-present-concept-flat-lay-top-close-up-view-photo-mini-metal-little-pushcart-falling-tiny-shiny-present-boxes-isolated-light-pastel-color-background-with-empty-space_352249-3064.jpg');
+           background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-<div style="width:30%;border:5px solid blue;padding:20px;margin:auto">
-  <div class="mb-3">
- <label for="exampleInputPassword1" class="form-label">Username or Email :<br />
- </label>&nbsp;<asp:TextBox ID="TextBox1" runat="server" placeholder ="Enter Username or Email" Width="136px"></asp:TextBox>
-  </div>
-<div class="mb-3">
- <label for="exampleInputPassword1" class="form-label">Password :<br />
-</label><asp:TextBox ID="TextBox2" runat="server" placeholder ="Enter Password"></asp:TextBox>
-</div>
-<asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="Login" OnClick="Button1_Click" />
-    <asp:Label ID="Label1" runat="server"></asp:Label>
+<body >
+    <section class="background-radial-gradient overflow-hidden">
+        <form id="form1" runat="server">
+            <div style="width: 400px; border: 5px solid black; margin: 150px auto; border-radius: 1rem; background-color: rgba(255, 255, 255, 0.2);"><br />
+                <h1 style="font-family: 'Arial', sans-serif; font-size: 36px; font-weight: bold; color: black; text-align: center;">Login</h1><br />
+                <div class="mb-3">
+                    <label for="TextBox1" class="form-label"  style="color: black;margin-left:100px;font-family: 'Arial', sans-serif; font-size: 20px;">Username or Email:</label><br />
+                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Enter Username or Email" style="border-radius:6px;margin-left:100px" Width="50%" Height="32px"></asp:TextBox>
+                </div>
    
-    <br />
-    <br />
-   
-       <div class="text-center mt-3">
-        <a href="Register.aspx">Register</a>
-        </div>
-</div>
-    </form>
+                <div class="mb-3">
+                    <label for="TextBox2" class="form-label" style="color:black;margin-left:100px;font-family: 'Arial', sans-serif; font-size: 20px;">Password:</label>
+                    <asp:TextBox ID="TextBox2" runat="server" placeholder="Enter Password" style="border-radius:6px;margin-left:100px" Width="50%" Height="32px"></asp:TextBox>
+                </div>
+                <br />
+                <div class="text-center">
+                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Login" style="color: #fff;border-radius:6px;" OnClick="Button1_Click" Height="36px" Width="100px" />
+
+                </div>
+                <div class="text-center mt-3">
+                    <a href="Register.aspx" style="color:black">Register</a><br /><br />
+                </div>
+            </div>
+        </form>
+    </section>
 </body>
 </html>

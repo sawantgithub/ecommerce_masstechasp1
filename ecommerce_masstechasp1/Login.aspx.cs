@@ -34,22 +34,27 @@ namespace ecommerce_masstechasp1
                     if ((reader["username"].Equals(user) || reader["email"].Equals(user)) && reader["passkey"].Equals(pass) && reader["urole"].ToString().Equals("Admin"))
                     {
                         Session["MyUser"] = user;
+
                         Response.Redirect("Admin.aspx");
                     }
                     else  if ((reader["username"].Equals(user) || reader["email"].Equals(user)) && reader["passKey"].Equals(pass) && reader["urole"].ToString().Equals("User"))
                     {
                         Session["MyUser"] = user;
                         Session["user_id"] = reader["user_id"];
+                        Session["username"] = reader["username"];
+                        Session["email"] = reader["email"];
                         Response.Redirect("User.aspx");
                     }
 
                 }
+                reader.Close();
             }
             else
             {
                 Response.Write("<script>alert('First Register')</script>");
 
             }
+
         }
     }
 }

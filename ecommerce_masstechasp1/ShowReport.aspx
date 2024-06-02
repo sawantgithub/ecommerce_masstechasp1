@@ -2,13 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
+    <br />
     <div>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="product_id" DataSourceID="SqlDataSource1" GridLines="Horizontal" PageSize="5">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="product_id" DataSourceID="SqlDataSource1" GridLines="Vertical" PageSize="5" Height="300px" HorizontalAlign="Center" Width="1200px">
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                
                 <asp:BoundField DataField="product_id" HeaderText="product_id" InsertVisible="False" ReadOnly="True" SortExpression="product_id" />
-                <asp:ImageField DataImageUrlField="product_img" HeaderText="Product Image" ControlStyle-Height="100px" ControlStyle-Width="100px" />
+                <asp:ImageField DataImageUrlField="product_img" HeaderText="Product Image" ControlStyle-Height="100px" ControlStyle-Width="100px" >
+<ControlStyle Height="100px" Width="100px"></ControlStyle>
+                </asp:ImageField>
                 <asp:BoundField DataField="product_name" HeaderText="product_name" SortExpression="product_name" />
                 <asp:BoundField DataField="categories" HeaderText="categories" SortExpression="categories" />
                 <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
@@ -59,8 +63,7 @@
     </div>
     <br />
     <br />
-     <div>
-         <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="user_id" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical">
+         <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="user_id" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical" Height="300px" HorizontalAlign="Center" Width="1200px">
              <AlternatingRowStyle BackColor="#CCCCCC" />
              <Columns>
                 
@@ -71,6 +74,7 @@
                  <asp:BoundField DataField="urole" HeaderText="urole" SortExpression="urole" />
                   <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
              </Columns>
+             <EditRowStyle BackColor="Blue" BorderColor="Blue" />
              <FooterStyle BackColor="#CCCCCC" />
              <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
              <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
@@ -80,6 +84,9 @@
              <SortedDescendingCellStyle BackColor="#CAC9C9" />
              <SortedDescendingHeaderStyle BackColor="#383838" />
          </asp:GridView>
+    <br />
+    <br />
+     <div>
          <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:dbconn %>" DeleteCommand="DELETE FROM [Users] WHERE [user_id] = @original_user_id AND (([username] = @original_username) OR ([username] IS NULL AND @original_username IS NULL)) AND (([email] = @original_email) OR ([email] IS NULL AND @original_email IS NULL)) AND (([passkey] = @original_passkey) OR ([passkey] IS NULL AND @original_passkey IS NULL)) AND (([urole] = @original_urole) OR ([urole] IS NULL AND @original_urole IS NULL))" InsertCommand="INSERT INTO [Users] ([username], [email], [passkey], [urole]) VALUES (@username, @email, @passkey, @urole)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Users]" UpdateCommand="UPDATE [Users] SET [username] = @username, [email] = @email, [passkey] = @passkey, [urole] = @urole WHERE [user_id] = @original_user_id AND (([username] = @original_username) OR ([username] IS NULL AND @original_username IS NULL)) AND (([email] = @original_email) OR ([email] IS NULL AND @original_email IS NULL)) AND (([passkey] = @original_passkey) OR ([passkey] IS NULL AND @original_passkey IS NULL)) AND (([urole] = @original_urole) OR ([urole] IS NULL AND @original_urole IS NULL))">
              <DeleteParameters>
                  <asp:Parameter Name="original_user_id" Type="Int32" />
@@ -107,6 +114,5 @@
              </UpdateParameters>
          </asp:SqlDataSource>
      </div>
-    <br />
-    <br />
+<!----------------------------      Footer end ----------------------------------------------->
 </asp:Content>
