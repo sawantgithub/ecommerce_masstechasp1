@@ -35,7 +35,7 @@
                             <a class="nav-link" href="AddCart.aspx">
                                 <span class="fas fa-shopping-cart">
 
-                                    <span class="badge badge-pill badge-danger">
+                                    <span class="badge badge-pill badge-primary">
                                         <asp:Label ID="Label2" runat="server" Text=""></asp:Label></span></span>
                             </a>
                         </li>
