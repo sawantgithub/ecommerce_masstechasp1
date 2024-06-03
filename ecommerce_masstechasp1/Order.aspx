@@ -67,25 +67,27 @@
                     <asp:Label ID="ProductPrice" runat="server" Text="Price:"></asp:Label>
                 </div>
                 <div>
-                    <asp:Label ID="Usernamelabel" runat="server" Text="Username:"></asp:Label>
+                    <asp:Label ID="Usernamelabel" runat="server" Text=""></asp:Label>
                 </div>
                 <div>
-                    <asp:Label ID="Emaillabel" runat="server" Text="EmailId:"></asp:Label>
+                    <asp:Label ID="Emaillabel" runat="server" Text=""></asp:Label>
                 </div>
                 <div>
                     <asp:Label ID="Label3" runat="server" Text="Label">Address:</asp:Label>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" style="border-radius:6px;" Width="100%" Height="32px"></asp:TextBox>
                 </div>
                 <div>
                     <asp:Label ID="Label4" runat="server" Text="Label">Pincode:</asp:Label>
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" style="border-radius:6px;" Width="100%" Height="32px"></asp:TextBox>
                 </div>
+                <div>
                 <asp:Label ID="Label5" runat="server" Text="Label">Number:</asp:Label>
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox5" runat="server" style="border-radius:6px;" Width="100%" Height="32px"></asp:TextBox>
             </div>
-            <div>
-                <asp:Button ID="BuyNowButton" runat="server" Text="Buy Now" CssClass="buy-now-btn" OnClick="BuyNowButton_Click" />
-            </div>
+                    <div class="text-center mt-3">
+    <asp:Button ID="BuyNowButton" runat="server" Text="Buy Now" CssClass="buy-now-btn" OnClick="BuyNowButton_Click" />
+</div>
         </div>
+ 
     </body>
 </asp:Content>

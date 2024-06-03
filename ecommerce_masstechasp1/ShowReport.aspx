@@ -5,6 +5,25 @@
     <br />
     <br />
     <div>
+        <style>
+                  .delete-button {
+     background-color: #20B0D4;
+     color: black;
+     border: none;
+     padding: 10px 20px;
+     text-align: center;
+     text-decoration: none !important;
+     display: inline-block;
+     font-size: 14px;
+     margin: 4px 2px;
+     cursor: pointer;
+     border-radius: 4px;
+     text-align:center;
+ }
+ .delete-button:hover {
+     background-color: darkred;
+ }
+        </style>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="product_id" DataSourceID="SqlDataSource1" GridLines="Vertical" PageSize="5" Height="300px" HorizontalAlign="Center" Width="1200px">
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
@@ -17,7 +36,7 @@
                 <asp:BoundField DataField="categories" HeaderText="categories" SortExpression="categories" />
                 <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
                 <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
-                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ControlStyle-CssClass="delete-button" />
               
             </Columns>
             <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
@@ -72,7 +91,7 @@
                  <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
                  <asp:BoundField DataField="passkey" HeaderText="passkey" SortExpression="passkey" />
                  <asp:BoundField DataField="urole" HeaderText="urole" SortExpression="urole" />
-                  <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                  <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ControlStyle-CssClass="delete-button"/>
              </Columns>
              <EditRowStyle BackColor="Blue" BorderColor="Blue" />
              <FooterStyle BackColor="#CCCCCC" />

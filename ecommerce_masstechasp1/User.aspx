@@ -2,16 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height:250px">
+                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height:300px">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" style="height:250px" style="object-fit: contain" src="https://m.media-amazon.com/images/I/61H3B5rmlyL._SX1500_.jpg" alt="First slide">
+            <img class="d-block w-100" style="height:300px" style="object-fit: contain" src="https://m.media-amazon.com/images/I/61H3B5rmlyL._SX1500_.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100"  style="height:250px" style="object-fit: contain" src="https://m.media-amazon.com/images/I/81UdfCXqUoL._SX3000_.jpg" alt="Second slide">
+            <img class="d-block w-100"  style="height:300px" style="object-fit: contain" src="https://m.media-amazon.com/images/I/81UdfCXqUoL._SX3000_.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100"  style="height:250px"  style="object-fit: contain" src="https://m.media-amazon.com/images/I/B1xWNAn+paL._SX3000_.jpg" alt="Third slide">
+            <img class="d-block w-100"  style="height:300px"  style="object-fit: contain" src="https://m.media-amazon.com/images/I/B1xWNAn+paL._SX3000_.jpg" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -21,10 +21,10 @@
     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-    
+    </a>
 
 </div>
-</a>
+
 <br />
            <!-- Category -->
         <%-- <h5 style="font-family: 'Arial', sans-serif; font-size: 36px; color: black; text-align: center;">Category</h5>--%>

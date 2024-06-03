@@ -98,6 +98,7 @@ namespace ecommerce_masstechasp1
                         'order_id': '{orderId}',
                         'handler': function(response) {{
                             alert('Payment successful. Payment ID: ' + response.razorpay_payment_id);
+                         
                         }},
                         'prefill': {{
                            'name': '{Usernamelabel}',

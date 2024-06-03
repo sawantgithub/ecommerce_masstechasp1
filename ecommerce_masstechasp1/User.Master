@@ -17,7 +17,7 @@
     <form id="form1" runat="server">
 
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style:"z-index:1;">
                 <a class="navbar-brand" href="User.aspx">User Portal</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,14 +31,7 @@
                         <%--  <li class="nav-item">
      <a class="nav-link" href="AddCart.aspx">Add Cart</a>
    </li>--%>
-                        <li class="nav-item">
-                            <a class="nav-link" href="AddCart.aspx">
-                                <span class="fas fa-shopping-cart">
 
-                                    <span class="badge badge-pill badge-primary">
-                                        <asp:Label ID="Label2" runat="server" Text=""></asp:Label></span></span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Order.aspx">My Order</a>
                         </li>
@@ -49,7 +42,17 @@
                                 <asp:Button class="dropdown-item" ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
                             </div>
                         </li>
-
+                        
+                        <li class="nav-item" style="margin-left: 65rem;">
+                           <a class="nav-link" href="Addcart.aspx">
+                                <span class="fas fa-shopping-cart">
+                                    <span class="badge badge-pill badge-primary">
+                                        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        
                     </ul>
 
                 </div>

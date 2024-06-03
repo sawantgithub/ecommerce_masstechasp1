@@ -4,8 +4,42 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br /><br />
+    <br />
+    <br />
+    <style>
+             .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align:center;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+        }
 
+        .buy-now-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+            .buy-now-btn:hover {
+                background-color: #45a049;
+            }
+    </style>
     <asp:GridView ID="GridView1" runat="server" DataKeyNames="cart_id" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnItemCommand="onDataListChange"
         OnRowCommand="GridView1_RowCommand"
         OnRowEditing="GridView1_RowEditing"
@@ -22,10 +56,10 @@
             <asp:BoundField DataField="categories" HeaderText="Categories" />
             <asp:BoundField DataField="price" HeaderText="Price" />
             <asp:BoundField DataField="cart_quantity" HeaderText="Quantity" />
-            <asp:CommandField ShowDeleteButton="True" />
+            <asp:CommandField ShowDeleteButton="True"  DeleteText="Remove" ShowInsertButton="False" ButtonType="Button" ControlStyle-BackColor="Red" ControlStyle-CssClass="delete-button" />
             <asp:TemplateField>
-                <ItemTemplate>
-                    <asp:Button ID="btnEdit" runat="server" Text="Buy Now" CommandName="buynow" CommandArgument='<%# Eval("cart_id") %>' />
+                <ItemTemplate >
+                    <asp:Button ID="btnEdit" CssClass="buy-now-btn" runat="server" Text="Buy Now" CommandName="buynow" CommandArgument='<%# Eval("cart_id") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -38,5 +72,5 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
-        
+
 </asp:Content>
