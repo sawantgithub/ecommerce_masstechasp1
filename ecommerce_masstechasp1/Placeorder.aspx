@@ -27,17 +27,27 @@
         }
 
         .auto-style17 {
-            width: 555px;
+            width: 505px;
             height: 137px;
         }
 
         .auto-style18 {
-            width: 555px;
+            width: 505px;
             height: 106px;
         }
 
         .auto-style19 {
             width: 555px;
+        }
+
+        .auto-style20 {
+            width: 456px;
+            height: 137px;
+        }
+
+        .auto-style21 {
+            width: 456px;
+            height: 106px;
         }
     </style>
 </asp:Content>
@@ -54,19 +64,29 @@
     <div class="container my-5">
 
         <asp:Panel ID="Panel1" runat="server">
+            <div class="text-center mt-3">
+                <h1>Invoice</h1>
+            </div>
             <table border="1" class="auto-style12" style="border-style: double">
                 <tr>
-                    <td class="auto-style17"><span class="auto-style11"><strong><em>Order ID:</em></strong></span>
+                    <td class="auto-style20"><span class="auto-style11"><strong><em>Order ID : </em></strong></span>&nbsp;
+                       
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                     </td>
-                    <td class="auto-style14"><span class="auto-style11"><strong><em>Email ID:</em></strong></span><asp:Label ID="Label2" runat="server"></asp:Label>
+                    <td class="auto-style14">
+                        <span class="auto-style11"><strong><em>Username :</em></strong></span>
+                        <asp:Label ID="username_label" runat="server"></asp:Label><br />
+                        <br />
+                        <span class="auto-style11"><strong><em>Email ID :</em></strong></span>
+                        &nbsp;<asp:Label ID="Label2" runat="server"></asp:Label>
                         <br />
                         <br />
-                        <span class="auto-style11"><strong><em>Contact Details:</em></strong></span><asp:Label ID="Label3" runat="server"></asp:Label>
+                        <span class="auto-style11"><strong><em>Contact Details :</em></strong></span>
+                        &nbsp;<asp:Label ID="contact_label" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style18"><span class="auto-style11"><strong><em>Seller Address: </em></strong></span>
+                    <td class="auto-style21"><span class="auto-style11"><strong><em>Seller Address: </em></strong></span>
                         <br />
                         <br />
                         Amazon.Inc ,<br />
@@ -75,37 +95,39 @@
                     <td class="auto-style15"><span class="auto-style11"><strong><em>Buyer Address: </em></strong></span>
                         <br />
                         <br />
-                        <asp:Label ID="Label4" runat="server"></asp:Label>
+                        <asp:Label ID="address_label" runat="server"></asp:Label>
+                        <br />
+                        <br />
+                        <asp:Label ID="pincode_label" runat="server"></asp:Label>
                         <br />
                         <br />
                     </td>
                 </tr>
                 <caption>
-                    <br>
-                    <br>
                     <tr>
                         <td class="auto-style6" colspan="2">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="order_id,product_id" DataSourceID="db" Height="212px" HorizontalAlign="Center" Width="1000px">
+                            <br />
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="order_id,product_id" DataSourceID="db" Height="300px" HorizontalAlign="Center" Width="1200px">
                                 <Columns>
                                     <asp:BoundField DataField="order_id" HeaderStyle-HorizontalAlign="Center" HeaderText="Id" InsertVisible="False" ItemStyle-HorizontalAlign="Center" ReadOnly="True" SortExpression="order_id">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="product_name" HeaderStyle-HorizontalAlign="Center" HeaderText="Product" ItemStyle-HorizontalAlign="Center" SortExpression="product_name">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="price" HeaderStyle-HorizontalAlign="Center" HeaderText="price" ItemStyle-HorizontalAlign="Center" SortExpression="price">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="quantity" HeaderStyle-HorizontalAlign="Center" HeaderText="Quantity" ItemStyle-HorizontalAlign="Center" SortExpression="quantity">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="orderDate" HeaderStyle-HorizontalAlign="Center" HeaderText="Date" ItemStyle-HorizontalAlign="Center" SortExpression="orderDate">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:BoundField>
                                 </Columns>
                                 <HeaderStyle HorizontalAlign="Center" />
@@ -116,34 +138,21 @@
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </td>
-                        <caption>
-                            <br></br>
-                            <br></br>
-                        </caption>
                     </tr>
                     <tr>
-                        <td class="auto-style19" colspan="2">Grand Total :<asp:Label ID="totalPriceLabel" runat="server"></asp:Label>
+                        <td class="auto-style19" colspan="2">Grand Total : &nbsp;<asp:Label ID="totalPriceLabel" runat="server"></asp:Label>
                         </td>
                     </tr>
-                    </br>
-                    </br>
                 </caption>
             </table>
         </asp:Panel>
-
-
-
+    </div>
+    <div class="text-center mt-3">
+        <asp:Button ID="Button1" runat="server" Text="Download Invoice" class="btn btn-danger" OnClick="Download_Invoice" Height="50px" />&nbsp;&nbsp;&nbsp;
+   
+        <asp:Button ID="Button3" runat="server" class="btn-success" Text="Pay now" OnClick="Button3_Click" Height="50px" Width="131px" />
     </div>
 
-    <asp:Button ID="Button1" runat="server" Text="Download Invoice" class="btn btn-danger" OnClick="Button1_Click" />
-    
-    <asp:Button ID="Button3" runat="server"  class="btn-success" Text="Pay now" OnClick="Button3_Click" />
-
-    <%--&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button2" runat="server" Text="Email Invoice" class="btn btn-info" OnClick="Button2_Click" />
-
-&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button3" runat="server"  class="btn-success" Text="Pay now" OnClick="Button3_Click" />--%>
 
     <br />
     <br />

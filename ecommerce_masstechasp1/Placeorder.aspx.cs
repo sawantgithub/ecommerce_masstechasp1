@@ -15,31 +15,35 @@ using System.Reflection.Emit;
 using System.Xml.Linq;
 using Razorpay.Api;
 using System.Data;
+using System.Collections;
 
 namespace ecommerce_masstechasp1
 {
     public partial class Placeorder : System.Web.UI.Page
     {
         SqlConnection conn;
+        string cnf = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Button1.Enabled = false;
             //Session["user_id"] = 1;
-            string cnf = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
             conn = new SqlConnection(cnf);
             conn.Open();
 
             if (!IsPostBack)
             {
                 FetchOrders();
+                UserFetchDetails();
                 CalculateTotalPrice();
             }
-           
+
         }
 
         protected void FetchOrders()
         {
             string str = Session["user_id"].ToString();
+            string username = Session["username"].ToString();
             string q = "select * from orders where user_id='" + str + "'";
             SqlCommand cmd = new SqlCommand(q, conn);
             SqlDataReader rdr = cmd.ExecuteReader();
@@ -48,19 +52,51 @@ namespace ecommerce_masstechasp1
             if (Session["email"] != null)
             {
                 Label2.Text = Session["email"].ToString();
+                username_label.Text = username;
             }
 
-            Label3.Text = "959412322";
-            Label4.Text = "D-1, Nirmiti CHSL, Secor 22,vashi, Panvel , Navi Mumbai.";
+            //Label3.Text = "959412322";
+            //address_label.Text = "D-1, Nirmiti CHSL, Secor 22,vashi, Panvel , Navi Mumbai.";
         }
 
         protected string GenerateOrderId()
         {
             Random random = new Random();
             return random.Next(100, 999).ToString();
-
-
         }
+
+
+
+        protected void UserFetchDetails()
+        {
+            int userId = Convert.ToInt32(Session["user_id"]);
+
+            using (SqlConnection conn = new SqlConnection(cnf))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_fetch_userdetails", conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@userdetails_id", userId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    // Process the fetched data
+                    string userAddress = reader["user_address"].ToString();
+                    int pincode = int.Parse(reader["pincode"].ToString());
+                    int contact = Convert.ToInt32(reader["contact"]);
+
+                    // Display the fetched data
+                    address_label.Text = userAddress;
+                    pincode_label.Text = pincode.ToString();
+                    contact_label.Text = contact.ToString();
+                }
+            }
+        }
+
+
 
         private void CalculateTotalPrice()
         {
@@ -68,20 +104,20 @@ namespace ecommerce_masstechasp1
             {
                 using (SqlCommand command = new SqlCommand("exec CalculateTotalOrderPriceByUserID '" + Session["user_id"] + "'", connection))
                 {
-                    /*command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@user_id", userId);*/
-
                     connection.Open();
 
                     object result = command.ExecuteScalar();
                     totalPriceLabel.Text = result.ToString();
-                    //totalPriceLabel.Text = int.Parse(result);
                 }
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Download_Invoice(object sender, EventArgs e)
         {
+            ///Ordered Successfully so deleted from OrderTable and Stored in Order History
+            OrderToOrderHistory(Convert.ToInt32(Session["user_id"]));
+
+
             Response.ContentType = "application/pdf";
 
             Response.AddHeader("content-disposition", "attachment;filename=OrderInvoice.pdf");
@@ -110,11 +146,32 @@ namespace ecommerce_masstechasp1
             Response.End();
         }
 
+        private void OrderToOrderHistory(int userId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(cnf))
+                {
+                    using (SqlCommand cmd = new SqlCommand("EXEC OrderToOrderHistory '" + userId + "'", conn))
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("alert(" + ex + ")");
+            }
+        }
+
+
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
                server control at run time. */
-           
+
         }
 
 
@@ -123,22 +180,12 @@ namespace ecommerce_masstechasp1
             Button1.Enabled = true;
             try
             {
-                
+
 
                 string keyId = "rzp_test_UMVGiuA5sKQxEW";
                 string keySecret = "mt9CiFHhiphKs5khoGENBZbB";
                 RazorpayClient razorpayClient = new RazorpayClient(keyId, keySecret);
-
-                //decimal amount = decimal.Parse(totalPriceLabel.Text.Replace("Price: ₹", "")); // Convert amount to paisa
                 decimal amount = Convert.ToDecimal(totalPriceLabel.Text) * 100;
-                //decimal amount = 1000;
-                //Response.Write(amount);
-
-                //string address = TextBox1.Text;
-                //string pincode = TextBox2.Text;
-                //string contact = TextBox3.Text;
-
-
 
                 Dictionary<string, object> options = new Dictionary<string, object>
                     {

@@ -81,23 +81,7 @@ namespace ecommerce_masstechasp1
                 // For example, you can redirect to another page or display details
                 Response.Write("Cart ID clicked: " + cartId);
             }
-            //else if (e.CommandName == "buynow")
-            //{
-            //    //int cartId = Convert.ToInt32(e.CommandArgument);
-            //    using (SqlConnection con = new SqlConnection(connectionString))
-            //    {
-            //        using (SqlCommand cmd = new SqlCommand("Exec CartToOrder '"+cartId+"'", con))
-            //        {
-            //            con.Open();
-            //            cmd.ExecuteNonQuery();
-
-            //        }
-            //        LoadCartDetails();
-
-            //    }
-            //    Response.Redirect("Order.aspx");
-
-            //}
+           
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

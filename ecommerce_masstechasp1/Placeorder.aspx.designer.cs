@@ -33,6 +33,15 @@ namespace ecommerce_masstechasp1
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// username_label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label username_label;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -42,22 +51,31 @@ namespace ecommerce_masstechasp1
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Label3 control.
+        /// contact_label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label contact_label;
 
         /// <summary>
-        /// Label4 control.
+        /// address_label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label address_label;
+
+        /// <summary>
+        /// pincode_label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pincode_label;
 
         /// <summary>
         /// GridView1 control.

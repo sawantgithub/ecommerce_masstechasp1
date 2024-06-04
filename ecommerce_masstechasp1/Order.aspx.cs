@@ -46,52 +46,18 @@ namespace ecommerce_masstechasp1
             if (e.CommandName == "Remove")
             {
                 int orderId = Convert.ToInt32(e.CommandArgument);
-                // Add your code to remove the item from the order using the orderId
-                // For example, you can call a stored procedure to delete the order
-                // Then rebind the GridView to refresh the items
-                // db.DeleteOrder(orderId); e// Example function call
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlCommand command = new SqlCommand("exec DeleteOrder  '" +  orderId+ "'", connection))
+                    using (SqlCommand command = new SqlCommand("exec DeleteOrder  '" + orderId + "'", connection))
                     {
-                        /*command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@user_id", userId);*/
-
                         connection.Open();
-
-                        object result = command.ExecuteScalar();
-                        //totalPriceLabel.Text = result.ToString();
-                        //totalPriceLabel.Text = int.Parse(result);
+                        command.ExecuteScalar();
+                        BindGridView();
                     }
 
                 }
-
-
-                BindGridView();
             }
         }
-
-
-        /*private decimal CalculateTotalPrice()
-        {
-            decimal totalPrice = 0m;
-
-            foreach (GridViewRow row in GridView1.Rows)
-            {
-                Label priceLabel = (Label)row.FindControl("price");
-                if (priceLabel != null)
-                {
-                    decimal price;
-                    if (decimal.TryParse(priceLabel.Text, out price))
-                    {
-                        totalPrice += price;
-                    }
-                }
-            }
-
-            totalPriceLabel.Text = "Total Price: " + totalPrice.ToString("C");
-            return totalPrice;
-        }*/
 
         private void CalculateTotalPrice()
         {
@@ -99,14 +65,10 @@ namespace ecommerce_masstechasp1
             {
                 using (SqlCommand command = new SqlCommand("exec CalculateTotalOrderPriceByUserID '" + Session["user_id"] + "'", connection))
                 {
-                    /*command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@user_id", userId);*/
-
                     connection.Open();
 
                     object result = command.ExecuteScalar();
                     totalPriceLabel.Text = result.ToString();
-                    //totalPriceLabel.Text = int.Parse(result);
                 }
             }
         }
@@ -114,9 +76,29 @@ namespace ecommerce_masstechasp1
 
         protected void BuyNowButton_Click(object sender, EventArgs e)
         {
-            BindGridView();
+            try
+            {
+                int userId = Convert.ToInt32(Session["user_id"]);
+                string userAddress = address_label.Text;
+                int pincode = int.Parse(pincode_label.Text);
+                decimal contact = decimal.Parse(contact_label.Text);
 
-            Response.Redirect("Placeorder.aspx");
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = $"EXEC sp_insert_userdetails '{userId}',{userAddress},{pincode},{contact}";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                //BindGridView();
+                Response.Redirect("Placeorder.aspx");
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<script>alert('Error: {ex.Message}');</script>");
+            }
         }
     }
 }

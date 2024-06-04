@@ -22,18 +22,6 @@ namespace ecommerce_masstechasp1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //string profile, doj;
-
-            //doj = DateTime.Now.ToString("dd/MM/yyyy");
-
-            //FileUpload1.SaveAs(Server.MapPath("Profiles/") + Path.GetFileName(FileUpload1.FileName));
-            //profile = "Profiles/" + Path.GetFileName(FileUpload1.FileName);
-
-            //string q = "exec SaveEmp '" + TextBox1.Text + "','" + TextBox2.Text + "','" + DropDownList1.SelectedValue + "','" + double.Parse(TextBox3.Text) + "','" + profile + "','" + doj + "'";
-            //SqlCommand c = new SqlCommand(q, conn);
-            //c.ExecuteNonQuery();
-            //Response.Write("<script>alert('Emp Added Successfully')</script>");
-            // Get values from form
             string productName = TextBox1.Text;
             string categories = TextBox2.Text;
             decimal price;
