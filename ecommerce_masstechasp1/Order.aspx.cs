@@ -50,6 +50,23 @@ namespace ecommerce_masstechasp1
                 // For example, you can call a stored procedure to delete the order
                 // Then rebind the GridView to refresh the items
                 // db.DeleteOrder(orderId); e// Example function call
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("exec DeleteOrder  '" +  orderId+ "'", connection))
+                    {
+                        /*command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@user_id", userId);*/
+
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+                        //totalPriceLabel.Text = result.ToString();
+                        //totalPriceLabel.Text = int.Parse(result);
+                    }
+
+                }
+
+
                 BindGridView();
             }
         }
